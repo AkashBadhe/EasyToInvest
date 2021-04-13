@@ -1,0 +1,2 @@
+import urls from './config';
+

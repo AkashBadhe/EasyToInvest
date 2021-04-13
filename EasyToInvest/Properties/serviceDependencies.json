@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "secrets1": {
+      "type": "secrets",
+      "connectionId": "ETIConnectionString"
+    },
     "mssql1": {
       "type": "mssql",
       "connectionId": "DefaultConnection"

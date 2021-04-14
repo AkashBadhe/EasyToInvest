@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Col, Form, FormGroup, Label, Input, Row } from "reactstrap";
 import Currency from "react-currency-formatter";
 import BarChart from "../common/BarChart/BarChart";
-import formatter from "../utils/CurrencyFormatory";
+import CurrencyInput from "react-currency-input-field";
 import styles from "./SIPCalculator.module.css";
 
 export default function SIPCalculator() {
@@ -14,8 +14,6 @@ export default function SIPCalculator() {
     totalReturns: 0,
     extraReturns: 0,
   });
-
-  const currencyFormattor = formatter("en-IN", "INR").format;
 
   const ChangeHandler = (e) => {
     const value = parseFloat(e.target.value);
@@ -77,12 +75,15 @@ export default function SIPCalculator() {
                   How much do you want to invest ?
                 </Label>
                 <Col sm={5}>
-                  <Input
-                    type="number"
+                  <CurrencyInput
+                    className="form-control"
                     name="amount"
-                    placeholder=""
-                    value={amount}
-                    onChange={ChangeHandler}
+                    defaultValue={amount}
+                    decimalsLimit={2}
+                    prefix="₹"
+                    onValueChange={(value, name) =>
+                      ChangeHandler({ target: { name: name, value: value } })
+                    }
                   />
                 </Col>
               </FormGroup>
@@ -91,7 +92,9 @@ export default function SIPCalculator() {
                   Investment Period ?
                 </Label>
                 <Col sm={5}>
+                  <span className={'input-group-text ' + styles.inputText} >Years</span>
                   <Input
+                    className={styles.inputPeriod}
                     type="number"
                     name="period"
                     placeholder=""
@@ -105,7 +108,9 @@ export default function SIPCalculator() {
                   Expected Annual Returns (%)
                 </Label>
                 <Col sm={5}>
+                  <span className={'input-group-text ' + styles.inputText} >%</span>
                   <Input
+                    className={styles.inputReturns}
                     type="number"
                     name="expected-returns"
                     placeholder=""

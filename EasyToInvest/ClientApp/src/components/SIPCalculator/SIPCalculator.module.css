@@ -31,3 +31,15 @@
 .label {
     font-size: 1.1rem;
 }
+
+.inputPeriod{
+    padding-left: 70px;
+}
+
+.inputReturns {
+    padding-left: 45px;
+}
+
+.inputText{
+    position: absolute;
+}

@@ -2,7 +2,6 @@ import React from "react";
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -11,7 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import styles from './Barchart.module.css';
-import formatter from '../utils/CurrencyFormatory';
+import formatter from '../../utils/CurrencyFormatory';
 const currencyFormattor = formatter('en-IN','INR').format;
 
 const CustomTooltip = ({ active, payload, label }) => {
@@ -22,6 +21,7 @@ const CustomTooltip = ({ active, payload, label }) => {
          <p>Label</p>
          <p>Interest: {currencyFormattor(currentItem.payload.Interest)}</p>
          <p>Invested: {currencyFormattor(currentItem.payload.Invested)}</p>
+         <p>Maturity Value: {currencyFormattor(currentItem.payload.Interest + currentItem.payload.Invested)}</p>
       </div>
     );
   }

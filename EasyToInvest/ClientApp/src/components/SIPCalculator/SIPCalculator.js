@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { Col, Form, FormGroup, Label, Input, Row } from "reactstrap";
 import Currency from "react-currency-formatter";
-import BarChart from "../common/BarChart";
+import BarChart from "../common/BarChart/BarChart";
 import formatter from "../utils/CurrencyFormatory";
 import styles from "./SIPCalculator.module.css";
 
